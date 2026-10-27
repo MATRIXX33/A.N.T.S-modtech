@@ -1,0 +1,1 @@
+{ "name": "ants-modtech", "version": "1.0.0", "description": "A.N.T.S ModTecH: live audience interaction for the Alumni Networking Team, SDMIMD", "main": "server.js", "scripts": { "start": "node server.js" }, "engines": { "node": ">=18" }, "license": "UNLICENSED" }

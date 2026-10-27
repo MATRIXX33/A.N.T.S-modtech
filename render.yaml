@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ants-modtech
+    runtime: node
+    plan: free
+    buildCommand: echo "no build needed"
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: HOST_PASSWORD
+        sync: false
