@@ -201,7 +201,7 @@ function cloud2(box,r,s){
  const ws=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,60),pal=PALS[s.pal]||COLORS,lay=s.layout||'drop',col=w=>pal[[...w].reduce((a,c)=>a+c.charCodeAt(0),0)%pal.length];
  box.style.fontFamily=`'${s.font||'Plus Jakarta Sans'}',sans-serif`;
  if(lay==='drop'){dropOld(box,r);box.querySelectorAll('.w').forEach(n=>n.style.color=col(n.dataset.w));return}
- if(!box._f||box._f!==s.font){box._f=s.font;document.fonts.load(`800 40px '${s.font||'Plus Jakarta Sans'}'`).then(()=>{box.dataset.sig='';cloud2(box,r,s)}).catch(()=>{})}
+ const fk=s.font||'Plus Jakarta Sans';if(box._f!==fk){box._f=fk;document.fonts.load(`800 40px '${fk}'`).then(()=>{box.dataset.sig='';cloud2(box,r,s)}).catch(()=>{})}
  const sig=lay+(s.pal||'')+(s.font||'')+JSON.stringify(ws);if(box.dataset.sig===sig)return;box.dataset.sig=sig;
  const seen=box._s||(box._s=new Set()),W=box.clientWidth||700,H=480,cx=W/2,cy=H/2,fam=s.font||'Plus Jakarta Sans',cv=document.createElement('canvas').getContext('2d'),boxes=[],orbit=lay==='orbit',an=`animation-duration:70s;animation-delay:-${(Date.now()/1000)%70}s`;
  const fx=()=>{const a=Math.random()*6.28;return`--fx:${Math.cos(a)*W/2|0}px;--fy:${Math.sin(a)*H/2|0}px`};let h='',inner='';
